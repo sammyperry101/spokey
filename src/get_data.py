@@ -71,7 +71,7 @@ def getAudioFeatures(sp : spotipy.Spotify, tracks : pd.DataFrame) -> pd.DataFram
     # Loop through returned data to gather audio feature information
     for track_features in audio_features:
         track_features = eval(str(track_features))
-        item = {"key" : track_features['key'], "mode" : track_features['mode'], "tempo" : track_features['tempo']}
+        item = {"key" : track_features['key'], "mode" : track_features['mode'], "tempo" : int(track_features['tempo'])}
 
         item = key_conversions.keyIntToNote(item)
         item = key_conversions.modeIntToNote(item)
